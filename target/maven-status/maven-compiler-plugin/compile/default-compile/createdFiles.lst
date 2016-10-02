@@ -1,1 +1,8 @@
+br/com/stylehair/dao/ClienteDAO.class
+br/com/stylehair/entity/Cliente_.class
+br/com/stylehair/entity/JpaEntityManager.class
+br/com/stylehair/servicos/ClienteResource.class
+br/com/stylehair/dao/GenericoDAO.class
 br/com/stylehair/entity/Cliente.class
+br/com/stylehair/entity/EntidadeBase.class
+br/com/stylehair/servicos/ApplicationConfig.class

@@ -1,1 +1,7 @@
+/home/vinicius/NetBeansProjects/WsStyleHair/src/main/java/br/com/stylehair/dao/ClienteDAO.java
+/home/vinicius/NetBeansProjects/WsStyleHair/src/main/java/br/com/stylehair/dao/GenericoDAO.java
+/home/vinicius/NetBeansProjects/WsStyleHair/src/main/java/br/com/stylehair/entity/JpaEntityManager.java
+/home/vinicius/NetBeansProjects/WsStyleHair/src/main/java/br/com/stylehair/servicos/ClienteResource.java
 /home/vinicius/NetBeansProjects/WsStyleHair/src/main/java/br/com/stylehair/entity/Cliente.java
+/home/vinicius/NetBeansProjects/WsStyleHair/src/main/java/br/com/stylehair/entity/EntidadeBase.java
+/home/vinicius/NetBeansProjects/WsStyleHair/src/main/java/br/com/stylehair/servicos/ApplicationConfig.java
