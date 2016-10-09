@@ -6,12 +6,15 @@
 package br.com.stylehair.entity;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 /**
@@ -29,6 +32,9 @@ public class Funcionario implements Serializable,EntidadeBase{
     private String email;
     private String senha;
 
+    
+     @OneToMany(mappedBy="func",cascade = CascadeType.ALL)
+    private List<Agendamento> agendamentos;
     @Override
     public Long getId() {
         return id;

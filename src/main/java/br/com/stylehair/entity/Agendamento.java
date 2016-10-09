@@ -5,10 +5,94 @@
  */
 package br.com.stylehair.entity;
 
+import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 /**
  *
  * @author vinicius
  */
-public class Agendamento {
+@Entity
+@SequenceGenerator(name = "AGE_SEQ", sequenceName = "AGE_SEQ", initialValue = 1, allocationSize = 1)
+public class Agendamento implements Serializable,EntidadeBase {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "AGE_SEQ")
+    private Long id;
+    
+    @Column(name = "VALOR_TOTAL")
+    private double valorTotal;
+    
+    @Column(name = "DATA_HORA_INI")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataHoraIni;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "DATA_HORA_FIM")
+    private Date dataHoraFim;
+    
+    @ManyToOne
+    private Cliente cliente;
+    
+    @ManyToOne
+    private Funcionario func;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public Date getDataHoraIni() {
+        return dataHoraIni;
+    }
+
+    public void setDataHoraIni(Date dataHoraIni) {
+        this.dataHoraIni = dataHoraIni;
+    }
+
+    public Date getDataHoraFim() {
+        return dataHoraFim;
+    }
+
+    public void setDataHoraFim(Date dataHoraFim) {
+        this.dataHoraFim = dataHoraFim;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Funcionario getFunc() {
+        return func;
+    }
+
+    public void setFunc(Funcionario func) {
+        this.func = func;
+    }
+    
+    
+    
     
 }

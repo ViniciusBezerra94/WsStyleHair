@@ -50,7 +50,9 @@ public class Cliente implements Serializable,EntidadeBase{
     
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Telefone> telefones;
-    
+
+    @OneToMany(mappedBy="cliente",cascade = CascadeType.ALL)
+    private List<Agendamento> agendamentos;
 
     public String getNome() {
         return nome;
