@@ -7,7 +7,7 @@ package br.com.stylehair.servicos;
 
 import br.com.stylehair.dao.ClienteDAO;
 import br.com.stylehair.entity.Cliente;
-import br.com.stylehair.entity.JpaEntityManager;
+
 import com.google.gson.Gson;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -19,6 +19,7 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
@@ -37,6 +38,8 @@ public class ClienteResource {
     private EntityManager em;
     
     
+    private Gson gson = new Gson();
+    
     @Context
     private UriInfo context;
 
@@ -44,7 +47,7 @@ public class ClienteResource {
      * Creates a new instance of ClienteResource
      */
     
-    List<Cliente> clientes;
+   
     public ClienteResource() {
     }
 
@@ -56,9 +59,10 @@ public class ClienteResource {
     @Produces("application/json")
     public String getJson() {
         ClienteDAO dao = new ClienteDAO(em);
+         List<Cliente> clientes;
         clientes = dao.buscarTodosCliente();
        
-        Gson gson = new Gson();
+      
         return gson.toJson(clientes);
     }
     
@@ -70,7 +74,7 @@ public class ClienteResource {
         System.out.println(n);
         ClienteDAO dao = new ClienteDAO(em);
         Cliente c = dao.consultarPorId(Cliente.class, Long.parseLong(id));
-        Gson gson = new Gson();
+   
         return gson.toJson(c);
        
     }
@@ -80,7 +84,22 @@ public class ClienteResource {
      * @param content representation for the resource
      */
     @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
+    @Consumes("application/json")
+    public void atualizarCliente(String cliente) {
+        salvarCliente(cliente);
     }
+    
+    
+    @POST
+    @Consumes("application/json")
+    public void salvarCliente(String cliente){
+        try{
+            Cliente c = gson.fromJson(cliente, Cliente.class);
+            ClienteDAO dao = new ClienteDAO(em);
+            dao.salvar(c);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
 }
