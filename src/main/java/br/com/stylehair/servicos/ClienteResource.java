@@ -17,6 +17,7 @@ import javax.persistence.PersistenceContext;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -57,7 +58,7 @@ public class ClienteResource {
      */
     @GET
     @Produces("application/json")
-    public String getJson() {
+    public String getTodosClientes() {
         ClienteDAO dao = new ClienteDAO(em);
          List<Cliente> clientes;
         clientes = dao.buscarTodosCliente();
@@ -100,6 +101,13 @@ public class ClienteResource {
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+    
+    @DELETE
+    @Path("{id}")
+    public void removerCliente(@PathParam("id") String id){
+        ClienteDAO dao = new ClienteDAO(em);
+        dao.remover(Cliente.class, Long.valueOf(id));
     }
     
 }
