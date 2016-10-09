@@ -6,6 +6,8 @@
 package br.com.stylehair.entity;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 /**
@@ -38,6 +41,16 @@ public class Cliente implements Serializable,EntidadeBase{
     private String senha;
     private String email;
     private String cpf;
+    private String rua;
+    private String cidade;
+    private String uf;
+    private String numero;
+    private String cep;
+    
+    
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Telefone> telefones;
+    
 
     public String getNome() {
         return nome;
@@ -78,6 +91,54 @@ public class Cliente implements Serializable,EntidadeBase{
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public List<Telefone> getTelefones() {
+        return telefones;
+    }
+
+    public void setTelefones(List<Telefone> telefones) {
+        this.telefones = telefones;
     }
     
     
