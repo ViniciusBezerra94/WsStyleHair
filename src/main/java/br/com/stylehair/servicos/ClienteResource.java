@@ -11,11 +11,9 @@ import br.com.stylehair.entity.Cliente;
 import com.google.gson.Gson;
 import java.util.List;
 import javax.ejb.Stateless;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.UriInfo;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.Produces;
@@ -24,7 +22,8 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.UriInfo;
 
 /**
  * REST Web Service
@@ -49,8 +48,7 @@ public class ClienteResource {
      */
     
    
-    public ClienteResource() {
-    }
+
 
     /**
      * Retrieves representation of an instance of br.com.stylehair.servicos.ClienteResource
@@ -58,7 +56,7 @@ public class ClienteResource {
      */
     @GET
     @Produces("application/json")
-    public String getTodosClientes() {
+    public String getJson() {
         ClienteDAO dao = new ClienteDAO(em);
          List<Cliente> clientes;
         clientes = dao.buscarTodosCliente();
@@ -67,10 +65,16 @@ public class ClienteResource {
         return gson.toJson(clientes);
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     @GET
     @Path("{clienteId}")
     @Produces("application/json")
     public String getCliente(@PathParam("clienteId") String id){
+        System.out.println("pegando o cliente");
         Long n = Long.parseLong(id);
         System.out.println(n);
         ClienteDAO dao = new ClienteDAO(em);
@@ -79,30 +83,36 @@ public class ClienteResource {
         return gson.toJson(c);
        
     }
+    
+    
+    @POST   
+    @Consumes("application/json")
+    public void salvarCliente(String cliente) throws Exception{
+        
+            Cliente c1 = gson.fromJson(cliente, Cliente.class);
+            ClienteDAO dao = new ClienteDAO(em);
+            dao.salvar(c1);
+        
+    }
 
     /**
      * PUT method for updating or creating an instance of ClienteResource
-     * @param content representation for the resource
+     * @param cliente
      */
     @PUT
     @Consumes("application/json")
-    public void atualizarCliente(String cliente) {
+    public void atualizarCliente(String cliente) throws Exception {
         salvarCliente(cliente);
     }
     
+
     
-    @POST
-    @Consumes("application/json")
-    public void salvarCliente(String cliente){
-        try{
-            Cliente c = gson.fromJson(cliente, Cliente.class);
-            ClienteDAO dao = new ClienteDAO(em);
-            dao.salvar(c);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
+
     
+    /**
+     *
+     * @param id
+     */
     @DELETE
     @Path("{id}")
     public void removerCliente(@PathParam("id") String id){
