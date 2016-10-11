@@ -44,8 +44,9 @@ public class Cliente implements Serializable,EntidadeBase{
     private String rua;
     private String cidade;
     private String uf;
-    private String numero;
+    private int numero;
     private String cep;
+    
     
     
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
@@ -119,13 +120,23 @@ public class Cliente implements Serializable,EntidadeBase{
         this.uf = uf;
     }
 
-    public String getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
+
+    public List<Agendamento> getAgendamentos() {
+        return agendamentos;
+    }
+
+    public void setAgendamentos(List<Agendamento> agendamentos) {
+        this.agendamentos = agendamentos;
+    }
+
+
 
     public String getCep() {
         return cep;
