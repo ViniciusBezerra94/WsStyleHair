@@ -27,6 +27,7 @@ import javax.persistence.TemporalType;
 public class Agendamento implements Serializable,EntidadeBase {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "AGE_SEQ")
+    @Column(name = "ID_AGEND")
     private Long id;
     
     @Column(name = "VALOR_TOTAL")

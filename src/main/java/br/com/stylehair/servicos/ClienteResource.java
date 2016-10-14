@@ -65,6 +65,16 @@ public class ClienteResource {
         return gson.toJson(clientes);
     }
     
+    @GET
+    @Produces("application/json")
+    @Path("pegarID")
+    public String getProxId(){
+        ClienteDAO dao = new ClienteDAO(em);
+        Long id = Long.valueOf(dao.buscarProximoId());
+     
+        return gson.toJson(id);
+    }
+    
     /**
      *
      * @param id
@@ -87,11 +97,12 @@ public class ClienteResource {
     
     @POST   
     @Consumes("application/json")
-    public void salvarCliente(String cliente) throws Exception{
+    @Produces("application/json")
+    public String salvarCliente(String cliente) throws Exception{
         
             Cliente c1 = gson.fromJson(cliente, Cliente.class);
             ClienteDAO dao = new ClienteDAO(em);
-            dao.salvar(c1);
+            return gson.toJson(dao.salvar(c1));
         
     }
 

@@ -3,8 +3,10 @@
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/entity/Servico.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/entity/Funcionario.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/entity/Agendamento.java
+/home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/dao/TelefoneDAO.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/dao/GenericoDAO.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/servicos/ApplicationConfig.java
+/home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/servicos/TelefoneResource.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/entity/JpaEntityManager.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/dao/ClienteDAO.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/entity/Pagamento.java

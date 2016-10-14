@@ -26,4 +26,10 @@ public class ClienteDAO extends GenericoDAO<Cliente>{
         Query q = etm.createNamedQuery("cliente.buscarTodosCliente");
         return q.getResultList();
     }
+    
+    
+    public String buscarProximoId(){
+        Query q = etm.createNativeQuery("select CLI_SEQ.NEXTVAL FROM DUAL");
+        return String.valueOf(q.getSingleResult());
+    }
 }

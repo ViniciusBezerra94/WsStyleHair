@@ -10,11 +10,13 @@ br/com/stylehair/entity/Agendamento_.class
 br/com/stylehair/entity/Pagamento.class
 br/com/stylehair/entity/EntidadeBase.class
 br/com/stylehair/entity/Pagamento_.class
+br/com/stylehair/dao/TelefoneDAO.class
 br/com/stylehair/dao/ClienteDAO.class
 br/com/stylehair/entity/Funcionario.class
 br/com/stylehair/entity/Cliente_.class
 br/com/stylehair/entity/JpaEntityManager.class
 br/com/stylehair/servicos/ClienteResource.class
 br/com/stylehair/entity/Servico.class
+br/com/stylehair/servicos/TelefoneResource.class
 br/com/stylehair/entity/Telefone_.class
 br/com/stylehair/servicos/ApplicationConfig.class
