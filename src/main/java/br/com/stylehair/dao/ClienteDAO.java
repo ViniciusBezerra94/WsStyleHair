@@ -32,4 +32,18 @@ public class ClienteDAO extends GenericoDAO<Cliente>{
         Query q = etm.createNativeQuery("select CLI_SEQ.NEXTVAL FROM DUAL");
         return String.valueOf(q.getSingleResult());
     }
+    
+    public Cliente buscarPorEmailESenha(String email, String senha){
+       Cliente c = new Cliente();
+       try{
+           Query q = etm.createNamedQuery("cliente.buscarPorEmaileSenha");
+           q.setParameter("email", email);
+           q.setParameter("senha", senha);
+           c = (Cliente) q.getSingleResult();
+           
+       }catch(Exception e){
+           return null;
+       }
+       return c;
+    }
 }

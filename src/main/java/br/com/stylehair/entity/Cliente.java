@@ -24,7 +24,8 @@ import javax.persistence.SequenceGenerator;
  */
 
 @NamedQueries({
-    @NamedQuery(name = "cliente.buscarTodosCliente", query = "select c from Cliente c")
+    @NamedQuery(name = "cliente.buscarTodosCliente", query = "select c from Cliente c"),
+    @NamedQuery(name = "cliente.buscarPorEmaileSenha" , query = "select c from Cliente c where c.email like :email and c.senha like :senha")
 })
 
 

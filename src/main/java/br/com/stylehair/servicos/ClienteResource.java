@@ -94,6 +94,20 @@ public class ClienteResource {
        
     }
     
+        @GET
+    @Path("{email}/{senha}")
+    @Produces("application/json")
+    public String getClientePorEmailESenha(@PathParam("email") String email, @PathParam("senha") String senha){
+        System.out.println("pegando o cliente");
+        
+        
+        ClienteDAO dao = new ClienteDAO(em);
+        Cliente c = dao.buscarPorEmailESenha(email, senha);
+   
+        return gson.toJson(c);
+       
+    }
+    
     
     @POST   
     @Consumes("application/json")
