@@ -41,11 +41,7 @@ public class Cliente implements Serializable,EntidadeBase{
     private String senha;
     private String email;
     private String cpf;
-    private String rua;
-    private String cidade;
-    private String uf;
-    private int numero;
-    private String cep;
+
     
     
     
@@ -96,37 +92,7 @@ public class Cliente implements Serializable,EntidadeBase{
         this.id = id;
     }
 
-    public String getRua() {
-        return rua;
-    }
-
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getUf() {
-        return uf;
-    }
-
-    public void setUf(String uf) {
-        this.uf = uf;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
+   
 
     public List<Agendamento> getAgendamentos() {
         return agendamentos;
@@ -138,13 +104,6 @@ public class Cliente implements Serializable,EntidadeBase{
 
 
 
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
 
     public List<Telefone> getTelefones() {
         return telefones;
