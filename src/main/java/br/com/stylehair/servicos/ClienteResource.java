@@ -94,7 +94,7 @@ public class ClienteResource {
        
     }
     
-        @GET
+    @GET
     @Path("{email}/{senha}")
     @Produces("application/json")
     public String getClientePorEmailESenha(@PathParam("email") String email, @PathParam("senha") String senha){
