@@ -30,6 +30,7 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(br.com.stylehair.servicos.ClienteResource.class);
+        resources.add(br.com.stylehair.servicos.FuncionarioResource.class);
         resources.add(br.com.stylehair.servicos.TelefoneResource.class);
     }
     
