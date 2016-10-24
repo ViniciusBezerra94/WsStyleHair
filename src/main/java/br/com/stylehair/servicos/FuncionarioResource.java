@@ -52,7 +52,7 @@ public class FuncionarioResource {
     @Path("{funcionarioId}")
     @Produces("application/json")
     public String getCliente(@PathParam("funcionarioId") String id){
-        System.out.println("pegando o cliente");
+        System.out.println("pegando o funcionario");
         Long n = Long.parseLong(id);
         System.out.println(n);
         FuncionarioDAO dao = new FuncionarioDAO(em);
