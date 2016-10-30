@@ -1,9 +1,12 @@
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/servicos/ClienteResource.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/entity/AgendamentoServico.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/entity/Servico.java
+/home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/servicos/AgendamentoResource.java
+/home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/dao/ServicoDAO.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/entity/Funcionario.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/entity/Agendamento.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/dao/TelefoneDAO.java
+/home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/dao/PagamentoDAO.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/dao/GenericoDAO.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/servicos/ApplicationConfig.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/servicos/FuncionarioResource.java
@@ -13,5 +16,7 @@
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/dao/ClienteDAO.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/entity/Pagamento.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/entity/EntidadeBase.java
+/home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/servicos/ServicoResource.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/entity/Cliente.java
 /home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/entity/Telefone.java
+/home/vinicius/GitHub/WsStyleHair/src/main/java/br/com/stylehair/dao/AgendamentoDAO.java

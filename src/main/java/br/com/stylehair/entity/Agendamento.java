@@ -14,6 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,6 +24,12 @@ import javax.persistence.TemporalType;
  *
  * @author vinicius
  */
+@NamedQueries({
+    @NamedQuery(name = "agendamento.buscarTodosAgendamento", query = "select a from Agendamento a")
+   
+})
+
+
 @Entity
 @SequenceGenerator(name = "AGE_SEQ", sequenceName = "AGE_SEQ", initialValue = 1, allocationSize = 1)
 public class Agendamento implements Serializable,EntidadeBase {
@@ -39,6 +47,9 @@ public class Agendamento implements Serializable,EntidadeBase {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "DATA_HORA_FIM")
     private Date dataHoraFim;
+    
+    
+    private char horaMarcada;
     
     @ManyToOne
     @JoinColumn(name = "id_cliente")
@@ -94,6 +105,14 @@ public class Agendamento implements Serializable,EntidadeBase {
 
     public void setFunc(Funcionario func) {
         this.func = func;
+    }
+
+    public char getHoraMarcada() {
+        return horaMarcada;
+    }
+
+    public void setHoraMarcada(char horaMarcada) {
+        this.horaMarcada = horaMarcada;
     }
     
     

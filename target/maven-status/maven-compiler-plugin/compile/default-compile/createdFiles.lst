@@ -1,6 +1,8 @@
 br/com/stylehair/entity/AgendamentoServico.class
 br/com/stylehair/dao/FuncionarioDAO.class
+br/com/stylehair/servicos/AgendamentoResource.class
 br/com/stylehair/dao/GenericoDAO.class
+br/com/stylehair/dao/AgendamentoDAO.class
 br/com/stylehair/servicos/FuncionarioResource.class
 br/com/stylehair/entity/EntidadeBase.class
 br/com/stylehair/entity/Pagamento_.class
@@ -19,6 +21,9 @@ br/com/stylehair/entity/Telefone.class
 br/com/stylehair/entity/Cliente.class
 br/com/stylehair/entity/Agendamento_.class
 br/com/stylehair/entity/Pagamento.class
+br/com/stylehair/dao/ServicoDAO.class
 br/com/stylehair/dao/ClienteDAO.class
 br/com/stylehair/entity/Funcionario.class
+br/com/stylehair/servicos/ServicoResource.class
 br/com/stylehair/entity/Telefone_.class
+br/com/stylehair/dao/PagamentoDAO.class

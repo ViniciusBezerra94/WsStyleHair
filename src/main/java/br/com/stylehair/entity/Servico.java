@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,6 +22,13 @@ import javax.persistence.TemporalType;
  *
  * @author vinicius
  */
+@NamedQueries({
+    @NamedQuery(name = "servico.buscarTodosServicos", query = "select s from Servico s")
+   
+})
+
+
+
 @Entity
 @SequenceGenerator(name = "SER_SEQ",sequenceName = "SER_SEQ",allocationSize = 1,initialValue = 1)
 public class Servico implements Serializable,EntidadeBase {
@@ -35,6 +44,8 @@ public class Servico implements Serializable,EntidadeBase {
     @Column(name="TEMPO_DURACAO")
     @Temporal(TemporalType.TIME)
     private Date tempoDuracao;
+    
+    private String camFoto;
 
     public Long getId() {
         return id;
@@ -67,6 +78,15 @@ public class Servico implements Serializable,EntidadeBase {
     public void setTempoDuracao(Date tempoDuracao) {
         this.tempoDuracao = tempoDuracao;
     }
+
+    public String getCamFoto() {
+        return camFoto;
+    }
+
+    public void setCamFoto(String camFoto) {
+        this.camFoto = camFoto;
+    }
+    
     
     
 }
