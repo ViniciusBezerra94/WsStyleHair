@@ -42,8 +42,7 @@ public class Servico implements Serializable,EntidadeBase {
     
     
     @Column(name="TEMPO_DURACAO")
-    @Temporal(TemporalType.TIME)
-    private Date tempoDuracao;
+    private int tempoDuracao;
     
     private String camFoto;
 
@@ -71,13 +70,15 @@ public class Servico implements Serializable,EntidadeBase {
         this.valor = valor;
     }
 
-    public Date getTempoDuracao() {
+    public int getTempoDuracao() {
         return tempoDuracao;
     }
 
-    public void setTempoDuracao(Date tempoDuracao) {
+    public void setTempoDuracao(int tempoDuracao) {
         this.tempoDuracao = tempoDuracao;
     }
+
+
 
     public String getCamFoto() {
         return camFoto;
