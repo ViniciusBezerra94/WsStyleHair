@@ -8,14 +8,16 @@ package br.com.stylehair.servicos;
 import br.com.stylehair.dao.AgendamentoDAO;
 import br.com.stylehair.entity.Agendamento;
 import com.google.gson.Gson;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -90,5 +92,22 @@ public class AgendamentoResource {
         return gson.toJson(agendamentos);
     }
     
+    
+    @POST   
+    @Consumes("application/json")
+    @Produces("application/json")
+    public String salvarAgendamento(String agendamento) throws Exception{
+        
+            Agendamento ag1 = gson.fromJson(agendamento, Agendamento.class);
+            AgendamentoDAO dao = new AgendamentoDAO(em);
+            return gson.toJson(dao.salvar(ag1));
+        
+    }
+    
+    @PUT
+    @Consumes("application/json")
+    public void atualizarAgendamento(String agendamento) throws Exception {
+        salvarAgendamento(agendamento);
+    }
 
 }
