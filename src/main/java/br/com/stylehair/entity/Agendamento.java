@@ -25,7 +25,9 @@ import javax.persistence.TemporalType;
  * @author vinicius
  */
 @NamedQueries({
-    @NamedQuery(name = "agendamento.buscarTodosAgendamento", query = "select a from Agendamento a")
+    @NamedQuery(name = "agendamento.buscarTodosAgendamento", query = "select a from Agendamento a"),
+    @NamedQuery(name = "agendamento.buscarAgendametoPorData", query = "select a from Agendamento a where a.dataHoraIni between :dataHora1 and :dataHora2 and a.horaMarcada like 'n'" )
+    
    
 })
 

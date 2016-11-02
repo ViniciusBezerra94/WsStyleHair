@@ -8,6 +8,9 @@ package br.com.stylehair.servicos;
 import br.com.stylehair.dao.AgendamentoDAO;
 import br.com.stylehair.entity.Agendamento;
 import com.google.gson.Gson;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -50,7 +53,7 @@ public class AgendamentoResource {
     @GET
     @Path("{agendamentoId}")
     @Produces("application/json")
-    public String getCliente(@PathParam("agendamentoId") String id){
+    public String getAgendamento(@PathParam("agendamentoId") String id){
         System.out.println("pegando o cliente");
         Long n = Long.parseLong(id);
         System.out.println(n);
@@ -59,6 +62,32 @@ public class AgendamentoResource {
    
         return gson.toJson(agend);
        
+    }
+    
+    @GET
+    @Path("{buscardata}/{dia}/{mes}/{ano}")
+    @Produces("application/json")
+    public String getAgendamentoPorData(@PathParam("dia") String dia,@PathParam("mes") String mes,@PathParam("ano") String ano ) {
+        AgendamentoDAO dao = new AgendamentoDAO(em);
+         List<Agendamento> agendamentos;
+         SimpleDateFormat dateFormat_hora = new SimpleDateFormat("HH:mm");
+         Date data = new Date();
+         String horaAtual = dateFormat_hora.format(data);
+         System.out.println("hora Atual" + horaAtual);
+         Date d1 = new Date();
+         SimpleDateFormat dateFormataData = new SimpleDateFormat("dd/MM/yyyy");
+         String dataHoje = dateFormataData.format(d1);
+         System.out.println("dataHoje ----" + dataHoje + "-------- " + dia+"/"+mes+"/"+ano );
+         
+         if(dataHoje.equalsIgnoreCase(dia+"/"+mes+"/"+ano)){
+
+            agendamentos = dao.buscarAgendamentoPorData(dia+"/"+mes+"/"+ano + " ",horaAtual);
+            return gson.toJson(agendamentos);
+         }
+         
+         agendamentos = dao.buscarAgendamentoPorData(dia+"/"+mes+"/"+ano + " ","08:00");
+      
+        return gson.toJson(agendamentos);
     }
     
 
